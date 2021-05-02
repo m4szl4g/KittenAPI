@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Threading.Tasks;
+using Bunzl.Kitten.API.Domain.User;
 using Bunzl.Kitten.API.Infrastructure.Cataas;
 
 namespace Bunzl.Kitten.API.Services
@@ -16,7 +17,7 @@ namespace Bunzl.Kitten.API.Services
         public async Task<byte[]> GetAsync()
         {
             Image image = await _api.GetAsync();
-            Domain.User.KittenImage kittenImage = new(image);
+            KittenImage kittenImage = new(image);
 
             return kittenImage.GetRotatedBy180();
         }
